@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+    - 5672:5672
+    - 15672:15672
+    volumes:
+      - ./rabbitmq/definitions.json:/opt/rabbitmq/definitions.json:ro
+      - ./rabbitmq/rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro
+
+  zookeeper:
+    image: zookeeper:3.5.4-beta
+    ports:
+    - 2181:2181
+    - 2888:2888
+    - 3888:3888
